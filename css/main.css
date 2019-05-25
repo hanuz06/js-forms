@@ -1358,6 +1358,7 @@ fieldset {
 	background-image: -webkit-linear-gradient(90deg, #971515 0%, #c93232 100%);
 	background-image: -ms-linear-gradient(90deg, #971515 0%, #c93232 100%);
 	color: #fff;
+	/* display: none; */
 }
 
 .no-radius-top {
