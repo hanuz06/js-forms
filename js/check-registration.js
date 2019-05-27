@@ -64,9 +64,9 @@ $(document).ready(function() {
                 }
 
 
-                //Проверка на соответствие email формату
+                //Проверка на соответствие email формату  
 
-                if (input.attr('type').toLowerCase() === 'email' && ($("input:password").val() != "")) {
+                if (input.attr('type').toLowerCase() === 'email' ) {
                     if (value !== '') {
                         var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
                         if (pattern.test(value)) {
@@ -86,14 +86,14 @@ $(document).ready(function() {
 
                 //Проверка на правильность введения email адреса и пароля
 
-                if (valid == true) {
-                    if (value === "mail@mail.com") {
-                        console.log('Email IS CORRECT');
+                if (valid == true && ($("input:password").val() != "")) {
+                    if (value !== "mail@mail.com") {
+                        console.log('Email IS TAKEN');
                         $('#emailInstruction').fadeOut(600);
                         _form.unbind('submit').submit();
 
                     } else {
-                        console.log('Email IS NOT CORRECT');
+                        console.log('Email IS FREE TO USE');
                         event.preventDefault();
                         $('#emailInstruction').fadeIn(600);
                     }

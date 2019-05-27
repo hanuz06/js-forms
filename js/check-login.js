@@ -32,28 +32,28 @@ $(document).ready(function() {
         // Приватные методы
 
         var _formValidation = function(event) {
-            event.preventDefault();
+            //event.preventDefault();
             console.log('Hello from _formValidation()');
             var emailVal = _yourEmail.val().toLowerCase().trim(),
                 passwordVal = _yourPassword.val().trim();
 
             //Проверка пустые поля
-            if (emailVal.length == 0) {
+            if (emailVal == "") {
                 $('#emailError').fadeIn(600);
                 event.preventDefault();
             } else {
                 $('#emailError').fadeOut(600);
             };
 
-            if (passwordVal.length == 0) {
+            if (passwordVal == "") {
                 $('#passwordError').fadeIn(600);
                 event.preventDefault();
             } else {
                 $('#passwordError').fadeOut(600);
             }
 
-            //Проверка на правильный формат email
-            if (emailVal !== '') {
+            //Проверка на правильный формат email //&&(passwordVal.length != 0)
+            if (emailVal != '') {
                 var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
                 if (pattern.test(emailVal)) {
                     $('#wrongEmailFormat').fadeOut(600);
@@ -66,7 +66,7 @@ $(document).ready(function() {
                 }
 
                 //Проверка на правильность введения email адреса и пароля
-                if (valid == true) {
+                if ((valid == true) && (passwordVal != "")) {
                     if ((emailVal === "mail@mail.com") && (passwordVal == 123)) {
                         $('#enterInstruction').fadeOut(600);
                         console.log('Email and password is CORRECT');
